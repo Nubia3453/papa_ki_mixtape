@@ -4,9 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dad's Cassette Collection</title>
+    <title>Papa Ki Mixtape | 80s & 90s Bollywood Songs</title>
+
+    <meta
+        name="description"
+        content="A nostalgic collection of Bollywood songs from the 1980s and 1990s, presented as a vintage cassette listening experience."
+    >
+    <meta name="keywords" content="old Bollywood songs, retro Bollywood, 80s Bollywood songs, 90s Bollywood songs, Hindi songs, cassette collection, AI, AI generated, Truck driver Playlist, Saloon Playlist">
+    <meta name="author" content="Vinayak Beldar">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Papa Ki Mixtape | Retro Bollywood Songs">
+
+    <meta property="og:description" content="A nostalgic digital cassette experience featuring classic Bollywood songs from the 1980s and 1990s.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nubia3453.github.io/papa_ki_mixtape/">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Nubia3453/papa_ki_mixtape/main/images/image001.png">
+
+<link
+    rel="canonical"
+    href="https://nubia3453.github.io/papa_ki_mixtape/"
+>
 
     <style>
+        @media (max-width: 600px) {
+            .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            flex-wrap: nowrap;
+            }
+
+        .controls button {
+            margin: 0;
+            padding: 8px 9px;
+            font-size: 12px;
+            white-space: nowrap;
+            }
+    /* mobile adjustments */
+        }
         body {
             margin: 0;
             min-height: 100vh;
@@ -69,6 +105,23 @@
             opacity: 0.65;
             letter-spacing: 0.5px
         }
+        .progress-container {
+            width: 400px;
+            max-width: 90%;
+            margin: 12px auto 15px;
+        }
+        #progressBar {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
 
         .controls {
             margin-top: 15px;
@@ -107,7 +160,7 @@
 
     <div class="player">
 
-        <h1>Dad's Cassette Collection</h1>
+        <h1>Papa Ki Mixtape</h1>
 
         <div class="song-title">
             Main Duniya Bhula Doonga Teri Chahat Mein
@@ -118,11 +171,22 @@
         </div>
 
         <audio id="audioPlayer"></audio>
-        <input type="range" id="progressBar" value="0" min="0" step="0.1">
-        <div class="time-display">
-            <span id="currentTime">0:00</span>
-            <span id="duration">0:00</span>
+        <div class="progress-container">
+
+            <input
+                type="range"
+                id="progressBar"
+                value="0"
+                min="0"
+                step="0.1"
+            >
+
+            <div class="time-display">
+                <span id="currentTime">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
         </div>
+
 
 <div class="controls">
     <button onclick="previousSong()">⏮ Previous</button>
@@ -139,18 +203,23 @@ const audioPlayer = document.getElementById("audioPlayer");
 
 const progressBar = document.getElementById("progressBar");
 const currentTimeDisplay = document.getElementById("currentTime");
-const durationDisplay = document.getElementById("duration");
+const durationDisplay = document.getElementById("duration")
 
 audioPlayer.addEventListener("timeupdate", () => {
 
     progressBar.value = audioPlayer.currentTime;
 
-    if (audioPlayer.duration) {
-        progressBar.max = audioPlayer.duration;
-        durationDisplay.textContent = formatTime(audioPlayer.duration);
-    }
-        currentTimeDisplay.textContent =
+    currentTimeDisplay.textContent =
         formatTime(audioPlayer.currentTime);
+
+});
+
+audioPlayer.addEventListener("loadedmetadata", () => {
+
+    progressBar.max = audioPlayer.duration;
+
+    durationDisplay.textContent =
+        formatTime(audioPlayer.duration);
 
 });
 
@@ -188,11 +257,12 @@ function loadSong(index) {
 }
 function formatTime(seconds) {
 
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = Math.floor(seconds % 60);
+    if (isNaN(seconds)) return "0:00";
 
-    return minutes + ":" +
-        String(remainingSeconds).padStart(2, "0");
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+
+    return minutes + ":" + String(secs).padStart(2, "0");
 }
 
 function togglePlay() {
@@ -230,6 +300,19 @@ function previousSong() {
     }
 
 }
+audioPlayer.addEventListener("ended", () => {
+
+    if (currentSong < songs.length - 1) {
+
+        currentSong++;
+
+        loadSong(currentSong);
+
+        audioPlayer.play();
+
+    }
+
+});
 
 </script>
 
