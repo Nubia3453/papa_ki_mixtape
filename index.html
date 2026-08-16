@@ -1,14 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Dad's Cassette Collection</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background-image: url("images/image001.png");
+            background-size: cover;
+            background-position: center;
+
+            font-family: Georgia, serif;
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+        }
+
+        .player {
+            position: relative;
+            z-index: 1;
+
+            width: 80%;
+            max-width: 700px;
+
+            padding: 40px;
+
+            background: rgba(0, 0, 0, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+
+            backdrop-filter: blur(4px);
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .song-title {
+            font-size: 28px;
+            margin-top: 30px;
+        }
+
+        .artist {
+            font-size: 18px;
+            margin-top: 10px;
+            opacity: 0.85;
+        }
+
+        .controls {
+            margin-top: 35px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 12px 20px;
+            margin: 5px;
+
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Dad's Cassette Collection</h1>
+    <div class="overlay"></div>
 
-    <p>Our music player is coming together.</p>
+    <div class="player">
+
+        <h1>Dad's Cassette Collection</h1>
+
+        <div class="song-title">
+            Main Duniya Bhula Doonga Teri Chahat Mein
+        </div>
+
+        <div class="artist">
+            Anuradha Paudwal, Kumar Sanu · 1990
+        </div>
+
+        <div class="controls">
+            <button>⏮ Previous</button>
+            <button>▶ Play</button>
+            <button>Next ⏭</button>
+        </div>
+
+    </div>
 
 </body>
 </html>
