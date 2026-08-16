@@ -28,26 +28,26 @@
         .overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.45);
+    
+            background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.05) 45%,
+            rgba(0, 0, 0, 0.75) 100%
+            );
         }
 
         .player {
             position: relative;
             z-index: 1;
 
-            width: 50%;
-            max-width: 600px;
+        width: 60%;
+        max-width: 650px;
 
-            padding: 15px 20px;;
-            margin-bottom: 25px;
-            
-            background: rgba(0, 0, 0, 0.55);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
+        padding: 15px 20px;
+        margin-bottom: 25px;
 
-            backdrop-filter: blur(4px);
+        background: transparent;
         }
-
         h1 {
             font-size: 28px;
             margin-bottom: 10px;
