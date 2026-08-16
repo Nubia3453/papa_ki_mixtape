@@ -103,11 +103,45 @@
             Anuradha Paudwal, Kumar Sanu · 1990
         </div>
 
-        <div class="controls">
-            <button>⏮ Previous</button>
-            <button>▶ Play</button>
-            <button>Next ⏭</button>
-        </div>
+        <audio id="audioPlayer"></audio>
+
+<div class="controls">
+    <button onclick="previousSong()">⏮ Previous</button>
+    <button onclick="togglePlay()">▶ Play / Pause</button>
+    <button onclick="nextSong()">Next ⏭</button>
+</div>
+
+<script>
+
+const songs = [
+    "https://pub-c2fa3072db2e461491c9932540efda51.r2.dev/music/song001.mp3"
+];
+
+let currentSong = 0;
+
+const audioPlayer = document.getElementById("audioPlayer");
+
+audioPlayer.src = songs[currentSong];
+
+function togglePlay() {
+
+    if (audioPlayer.paused) {
+        audioPlayer.play();
+    } else {
+        audioPlayer.pause();
+    }
+
+}
+
+function nextSong() {
+    console.log("Next song coming later");
+}
+
+function previousSong() {
+    console.log("Previous song coming later");
+}
+
+</script>
 
     </div>
 
