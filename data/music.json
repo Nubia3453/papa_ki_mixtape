@@ -1,0 +1,47 @@
+[
+  {
+    "song_id": "song001",
+    "title": "Tumse Milkar Na Jaane Kyun",
+    "film": "Pyaar Jhukta Nahin",
+    "year": "1985",
+    "artists": "Lata Mangeshkar, Shabbir Kumar",
+    "song_url": "https://pub-c2fa3072db2e461491c9932540efda51.r2.dev/music/song001.mp3",
+    "background_url": "https://raw.githubusercontent.com/Nubia3453/papa_ki_mixtape/main/images/image001.png"
+  },
+  {
+    "song_id": "song002",
+    "title": "Har Kisiko Nahin Milta Yahan Pyaar Zindagi Mein",
+    "film": "Jaanbaaz",
+    "year": "1986",
+    "artists": "Manhar, Sadhna Sargam",
+    "song_url": "https://pub-c2fa3072db2e461491c9932540efda51.r2.dev/music/song002.mp3",
+    "background_url": "https://raw.githubusercontent.com/Nubia3453/papa_ki_mixtape/main/images/image002.png"
+  },
+  {
+    "song_id": "song003",
+    "title": "Sun Sahiba Sun",
+    "film": "Ram Teri Ganga Maili",
+    "year": "1985",
+    "artists": "Lata Mangeshkar",
+    "song_url": "https://pub-c2fa3072db2e461491c9932540efda51.r2.dev/music/song003.mp3",
+    "background_url": "https://raw.githubusercontent.com/Nubia3453/papa_ki_mixtape/main/images/image003.png"
+  },
+  {
+    "song_id": "song004",
+    "title": "Kaate Nahin Kat Te",
+    "film": "Mr. India",
+    "year": "1987",
+    "artists": "kishor Kumar, Alisha Chinoy",
+    "song_url": "https://pub-c2fa3072db2e461491c9932540efda51.r2.dev/music/song004.mp3",
+    "background_url": "https://raw.githubusercontent.com/Nubia3453/papa_ki_mixtape/main/images/image004.png"
+  },
+  {
+    "song_id": "song005",
+    "title": "Aap Ke Aa Jaane Se",
+    "film": "Khudgarz",
+    "year": "1987",
+    "artists": "Mohammad Aziz, Sadhana Sargam",
+    "song_url": "https://pub-c2fa3072db2e461491c9932540efda51.r2.dev/music/song005.mp3",
+    "background_url": "https://raw.githubusercontent.com/Nubia3453/papa_ki_mixtape/main/images/image005.png"
+  }
+]
