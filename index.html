@@ -119,6 +119,23 @@ let currentSong = 0;
 
 const audioPlayer = document.getElementById("audioPlayer");
 
+const progressBar = document.getElementById("progressBar");
+
+audioPlayer.addEventListener("timeupdate", () => {
+
+    progressBar.value = audioPlayer.currentTime;
+
+    if (audioPlayer.duration) {
+        progressBar.max = audioPlayer.duration;
+    }
+
+});
+
+progressBar.addEventListener("input", () => {
+
+    audioPlayer.currentTime = progressBar.value;
+
+});
 fetch("data/music.json")
     .then(response => response.json())
     .then(data => {
