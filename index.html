@@ -151,6 +151,7 @@ function loadSong(index) {
     const song = songs[index];
 
     audioPlayer.src = song.song_url;
+    progressBar.value = 0;
 
     document.querySelector(".song-title").textContent = song.title;
 
