@@ -50,22 +50,28 @@
         }
         h1 {
             font-size: 28px;
-            margin-bottom: 10px;
+            font-weight: normal;
+            letter-spacing: 2px;
+            margin: 0 0 25px 0;
+            opacity: 0.85;
         }
 
         .song-title {
             font-size: 20px;
-            margin-top: 15px;
+            font-weight: normal;
+            line-height: 1.3;
+            margin: 0;
         }
 
         .artist {
-            font-size: 14px;
-            margin-top: 6px;
-            opacity: 0.85;
+            font-size: 13px;
+            margin-top: 7px;
+            opacity: 0.65;
+            letter-spacing: 0.5px
         }
 
         .controls {
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         button {
@@ -80,6 +86,13 @@
             border-radius: 8px;
 
             cursor: pointer;
+        }
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            opacity: 0.65;
+            margin-top: 4px;
         }
 
         button:hover {
@@ -106,6 +119,10 @@
 
         <audio id="audioPlayer"></audio>
         <input type="range" id="progressBar" value="0" min="0" step="0.1">
+        <div class="time-display">
+            <span id="currentTime">0:00</span>
+            <span id="duration">0:00</span>
+        </div>
 
 <div class="controls">
     <button onclick="previousSong()">⏮ Previous</button>
@@ -121,6 +138,8 @@ let currentSong = 0;
 const audioPlayer = document.getElementById("audioPlayer");
 
 const progressBar = document.getElementById("progressBar");
+const currentTimeDisplay = document.getElementById("currentTime");
+const durationDisplay = document.getElementById("duration");
 
 audioPlayer.addEventListener("timeupdate", () => {
 
@@ -128,7 +147,10 @@ audioPlayer.addEventListener("timeupdate", () => {
 
     if (audioPlayer.duration) {
         progressBar.max = audioPlayer.duration;
+        durationDisplay.textContent = formatTime(audioPlayer.duration);
     }
+        currentTimeDisplay.textContent =
+        formatTime(audioPlayer.currentTime);
 
 });
 
@@ -153,6 +175,8 @@ function loadSong(index) {
 
     audioPlayer.src = song.song_url;
     progressBar.value = 0;
+    currentTimeDisplay.textContent = "0:00";
+    durationDisplay.textContent = "0:00";
 
     document.querySelector(".song-title").textContent = song.title;
 
@@ -161,6 +185,14 @@ function loadSong(index) {
 
     document.body.style.backgroundImage =
         `url("${song.background_url}")`;
+}
+function formatTime(seconds) {
+
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+
+    return minutes + ":" +
+        String(remainingSeconds).padStart(2, "0");
 }
 
 function togglePlay() {
